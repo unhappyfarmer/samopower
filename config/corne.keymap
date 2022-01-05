@@ -33,54 +33,51 @@
             bindings = <&kp>, <&kp>;
     };
     
-    chosen {
-    zmk,matrix_transform = &five_column_transform;
-    };
         
-  };
+};
         
         keymap {
                 compatible = "zmk,keymap";
 
                 BASE_layer {
 // -----------------------------------------------------------------------------------------
-// |  Q  |    W    |    F    |     P    |    B    |   |    J    |     L     |    U    |    Y    |  '  |
-// |  A  |  R/GUI  |  S/ALT  |  T/CTRL  |  G/SFT  |   |  M/SFT  |  N/CTRL   |  E/ALT  |  I/GUI  |  O  | 
-// |  Z  |    X    |    C    |     D    |    V    |   |    K    |     H     |    ,    |    .    |  /  |
-//                 |  ESC/3  |   TAB/1  |  SPC/2  |   |  ENT/5  |   BKSP/4  |  DEL/6  |
+// | TRANS|  Q  |    W    |    F    |     P    |    B    |   |    J    |     L     |    U    |    Y    |  '  | TRANS|
+// | TRANS|  A  |  R/GUI  |  S/ALT  |  T/CTRL  |  G/SFT  |   |  M/SFT  |  N/CTRL   |  E/ALT  |  I/GUI  |  O  | TRANS|
+// | TRANS|  Z  |    X    |    C    |     D    |    V    |   |    K    |     H     |    ,    |    .    |  /  | TRANS|
+//                        |  ESC/3  |   TAB/1  |  SPC/2  |   |  ENT/5  |   BKSP/4  |  DEL/6  |
                         bindings = <
-   &kp Q       &kp W      &kp F       &kp P        &kp B   &kp J  &kp L        &kp U       &kp Y      &kp APOS   
-   &hm LGUI A  &hm LALT R &hm LCTRL S &hm LSHIFT T &kp G   &kp M  &hm LSHIFT N &hm LCTRL E &hm LALT I &hm LGUI O 
-   &kp Z       &kp X      &kp C       &kp D        &kp V   &kp K  &kp H        &kp COMMA   &kp DOT    &kp FSLH   
-                     &lt 3 ESC  &lt 1 TAB  &lt 2 SPACE     &lt 5 RET  &lt 4 BKSP   &lt 6 DEL
+   &none &kp Q       &kp W      &kp F       &kp P        &kp B   &kp J  &kp L        &kp U       &kp Y      &kp APOS   &none
+   &none &hm LGUI A  &hm LALT R &hm LCTRL S &hm LSHIFT T &kp G   &kp M  &hm LSHIFT N &hm LCTRL E &hm LALT I &hm LGUI O &none
+   &none &kp Z       &kp X      &kp C       &kp D        &kp V   &kp K  &kp H        &kp COMMA   &kp DOT    &kp FSLH   &none
+                            &lt 3 ESC  &lt 1 TAB  &lt 2 SPACE     &lt 5 RET  &lt 4 BKSP   &lt 6 DEL
                         >;
                 };
                 
                 NAV_layer {
 // -----------------------------------------------------------------------------------------
-// | TRANS | TRANS | TRANS | TRANS | TRANS |   | TRANS | UNDO | CUT  | COPY | PASTE |
-// | LGUI  |  LALT | LCTRL | LSFT  | TRANS |   | CPSLK |  LFT | DWN  |   UP |  RGT  |
-// | TRANS | TRANS | TRANS | TRANS | TRANS |   |  INST | HOME | PGDN | PGUP |  END  |
-//                 | TRANS | TRANS | TRANS |   |  ENT  | BKSP |  DEL |
+// | TRANS | TRANS | TRANS | TRANS | TRANS | TRANS |   | TRANS | UNDO | CUT  | COPY | PASTE | TRANS |
+// | TRANS | LGUI  |  LALT | LCTRL | LSFT  | TRANS |   | CPSLK |  LFT | DWN  |   UP |  RGT  | TRANS |
+// | TRANS | TRANS | TRANS | TRANS | TRANS | TRANS |   |  INST | HOME | PGDN | PGUP |  END  | TRANS |
+//                         | TRANS | TRANS | TRANS |   |  ENT  | BKSP |  DEL |
                         bindings = <
-   &trans    &trans    &trans     &trans      &trans         &kp PSCRN &kp K_UNDO &kp K_CUT &kp K_COPY &kp K_PASTE 
-   &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHIFT  &trans         &kp CAPS  &kp LEFT   &kp DOWN  &kp UP     &kp RIGHT   
-   &trans    &trans    &trans     &trans      &trans         &kp INS   &kp HOME   &kp PG_DN &kp PG_UP  &kp END     
-                       &trans     &trans      &trans         &kp RET   &kp BKSP   &kp DEL
+   &none  &trans    &trans    &trans     &trans      &trans         &kp PSCRN &kp K_UNDO &kp K_CUT &kp K_COPY &kp K_PASTE &none
+   &none  &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHIFT  &trans         &kp CAPS  &kp LEFT   &kp DOWN  &kp UP     &kp RIGHT   &none
+   &none  &trans    &trans    &trans     &trans      &trans         &kp INS   &kp HOME   &kp PG_DN &kp PG_UP  &kp END     &none
+                               &trans     &trans      &trans         &kp RET   &kp BKSP   &kp DEL
                         >;
                 };
 
                 MOUSE_layer {
 // -----------------------------------------------------------------------------------------
-// | TRANS | TRANS | TRANS | TRANS | TRANS |   | TRANS |  BT NXT | BT PREV | BT CLR  |  TRANS  |
-// | LGUI  |  LALT | LCTRL | LSFT  | TRANS |   | TRANS |  MSLFT  |  MSDWN  |   MSUP  |  MSRGT  |
-// | TRANS | TRANS | TRANS | TRANS | TRANS |   | TRANS |  WHLLFT |  WHLDWN |  WHLUP  |  WHLRGT |
-//                 | TRANS | TRANS | TRANS |   |  ENT  |   BKSP  |   DEL   |
+// | TRANS | TRANS | TRANS | TRANS | TRANS | TRANS |   | TRANS |  BT NXT | BT PREV | BT CLR  |  TRANS  | TRANS |
+// | TRANS | LGUI  |  LALT | LCTRL | LSFT  | TRANS |   | TRANS |  MSLFT  |  MSDWN  |   MSUP  |  MSRGT  | TRANS |
+// | TRANS | TRANS | TRANS | TRANS | TRANS | TRANS |   | TRANS |  WHLLFT |  WHLDWN |  WHLUP  |  WHLRGT | TRANS |
+//                         | TRANS | TRANS | TRANS |   |  ENT  |   BKSP  |   DEL   |
                         bindings = <
-   &trans    &trans    &trans     &trans      &trans         &trans   &bt BT_NXT &bt BT_PRV  &bt BT_CLR &trans    
-   &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHIFT  &trans         &trans   &trans     &trans      &trans     &trans    
-   &trans    &trans    &trans     &trans      &trans         &trans   &trans     &trans      &trans     &trans    
-                       &trans     &trans      &trans         &kp RET  &kp BKSP   &kp DEL
+   &none  &trans    &trans    &trans     &trans      &trans         &trans   &bt BT_NXT &bt BT_PRV  &bt BT_CLR &trans    &none
+   &none  &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHIFT  &trans         &trans   &trans     &trans      &trans     &trans    &none
+   &none  &trans    &trans    &trans     &trans      &trans         &trans   &trans     &trans      &trans     &trans    &none
+                               &trans     &trans      &trans         &kp RET  &kp BKSP   &kp DEL
                         >;
                 };
                 
@@ -91,10 +88,10 @@
 // | TRANS | TRANS | TRANS | TRANS | TRANS | TRANS |   |  TRANS | TRANS |  TRANS | TRANS | TRANS | TRANS |
 //                         | TRANS | TRANS | TRANS |   |  STOP  | PLAY/PAUSE |  MUTE |
                         bindings = <
-   &trans    &trans    &trans     &trans      &trans         &trans    &trans      &trans        &trans        &trans      
-   &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHIFT  &trans         &trans    &kp K_PREV  &kp K_VOL_DN  &kp K_VOL_UP  &kp K_NEXT  
-   &trans    &trans    &trans     &trans      &trans         &trans    &trans      &trans        &trans        &trans          
-                       &trans     &trans      &trans         &kp K_STOP2   &kp K_PP   &kp K_MUTE
+   &none  &trans    &trans    &trans     &trans      &trans         &trans    &trans      &trans        &trans        &trans      &none
+   &none  &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHIFT  &trans         &trans    &kp K_PREV  &kp K_VOL_DN  &kp K_VOL_UP  &kp K_NEXT  &none
+   &none  &trans    &trans    &trans     &trans      &trans         &trans    &trans      &trans        &trans        &trans      &none    
+                               &trans     &trans      &trans         &kp K_STOP2   &kp K_PP   &kp K_MUTE
                         >;
                 };
                 
@@ -105,10 +102,10 @@
 // | TRANS |   `   |   1   |   2   |   3   |   \   |   | TRANS | TRANS | TRANS | TRANS | TRANS | TRANS |
 //                         |   .   |   0   |   -   |   | TRANS | TRANS | TRANS |
                         bindings = <
-   &kp LBKT  &kp N7   &kp N8  &kp N9  &kp RBKT        &trans     &trans     &trans    &trans    &trans     
-   &kp SEMI  &kp N4   &kp N5  &kp N6  &kp EQUAL       &trans     &kp LSHIFT &kp LCTRL &kp LALT  &kp LGUI   
-   &kp GRAVE &kp N1   &kp N2  &kp N3  &kp BSLH        &trans     &trans     &trans    &trans    &trans     
-                      &kp DOT &kp N0  &kp MINUS       &trans     &trans     &trans
+   &none  &kp LBKT  &kp N7   &kp N8  &kp N9  &kp RBKT        &trans     &trans     &trans    &trans    &trans     &none
+   &none  &kp SEMI  &kp N4   &kp N5  &kp N6  &kp EQUAL       &trans     &kp LSHIFT &kp LCTRL &kp LALT  &kp LGUI   &none
+   &none  &kp GRAVE &kp N1   &kp N2  &kp N3  &kp BSLH        &trans     &trans     &trans    &trans    &trans     &none
+                              &kp DOT &kp N0  &kp MINUS       &trans     &trans     &trans
                         >;
                 };
                 
@@ -119,10 +116,10 @@
 // | TRANS |   ~   |   !   |   @   |   #   |   |   |   | TRANS | TRANS | TRANS | TRANS | TRANS | TRANS |
 //                         |   (   |   )   |   _   |   | TRANS | TRANS | TRANS |
                         bindings = <
-   &kp LBRC  &kp AMPS &kp STAR  &kp LPAR   &kp RBRC        &trans     &trans     &trans    &trans    &trans     
-   &kp COLON &kp DLLR &kp PRCNT &kp CARET  &kp EQUAL       &trans     &kp LSHIFT &kp LCTRL &kp LALT  &kp LGUI   
-   &kp TILDE &kp EXCL &kp AT    &kp HASH   &kp PIPE        &trans     &trans     &trans    &trans    &trans     
-                      &kp LPAR  &kp RPAR   &kp UNDER       &trans     &trans     &trans
+   &none  &kp LBRC  &kp AMPS &kp STAR  &kp LPAR   &kp RBRC        &trans     &trans     &trans    &trans    &trans     &none
+   &none  &kp COLON &kp DLLR &kp PRCNT &kp CARET  &kp EQUAL       &trans     &kp LSHIFT &kp LCTRL &kp LALT  &kp LGUI   &none
+   &none  &kp TILDE &kp EXCL &kp AT    &kp HASH   &kp PIPE        &trans     &trans     &trans    &trans    &trans     &none
+                              &kp LPAR  &kp RPAR   &kp UNDER       &trans     &trans     &trans
                         >;
                 };
                 
@@ -133,10 +130,10 @@
 // | TRANS |  F10  |  F1  |  F2  |  F3  | TRANS |   | TRANS | TRANS | TRANS | TRANS | TRANS | TRANS |
 //                        | MENU | TAB  | SPACE |   | TRANS | TRANS | TRANS |
                         bindings = <
-   &kp F12 &kp F7 &kp F8 &kp F9  &trans       &trans     &trans     &trans    &trans    &trans     
-   &kp F11 &kp F4 &kp F5 &kp F6  &trans       &trans     &kp LSHIFT &kp LCTRL &kp LALT  &kp LGUI   
-   &kp F10 &kp F1 &kp F2 &kp F3  &trans       &trans     &trans     &trans    &trans    &trans     
-             &kp K_CMENU &kp TAB &kp SPACE    &trans     &trans     &trans
+   &none  &kp F12 &kp F7 &kp F8 &kp F9  &trans       &trans     &trans     &trans    &trans    &trans     &none
+   &none  &kp F11 &kp F4 &kp F5 &kp F6  &trans       &trans     &kp LSHIFT &kp LCTRL &kp LALT  &kp LGUI   &none
+   &none  &kp F10 &kp F1 &kp F2 &kp F3  &trans       &trans     &trans     &trans    &trans    &trans     &none
+                     &kp K_CMENU &kp TAB &kp SPACE    &trans     &trans     &trans
                         >;
                 };
         };
