@@ -69,15 +69,15 @@
 
                 MOUSE_layer {
 // -----------------------------------------------------------------------------------------
-// | TRANS | TRANS | TRANS | TRANS | TRANS | TRANS |   | TRANS |  BT NXT | BT PREV | BT CLR  |  TRANS  | TRANS |
+// | TRANS | TRANS | TRANS | TRANS | TRANS | TRANS |   | BT 1  |   BT 2  |   BT 3  |   BT 4  |   BT 5  | TRANS |
 // | TRANS | LGUI  |  LALT | LCTRL | LSFT  | TRANS |   | TRANS |  MSLFT  |  MSDWN  |   MSUP  |  MSRGT  | TRANS |
 // | TRANS | TRANS | TRANS | TRANS | TRANS | TRANS |   | TRANS |  WHLLFT |  WHLDWN |  WHLUP  |  WHLRGT | TRANS |
 //                         | TRANS | TRANS | TRANS |   |  ENT  |   BKSP  |   DEL   |
                         bindings = <
-   &none  &trans    &trans    &trans     &trans      &trans         &trans   &bt BT_NXT &bt BT_PRV  &bt BT_CLR &trans    &none
-   &none  &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHIFT  &trans         &trans   &trans     &trans      &trans     &trans    &none
-   &none  &trans    &trans    &trans     &trans      &trans         &trans   &trans     &trans      &trans     &trans    &none
-                               &trans     &trans      &trans        &kp RET   &kp BKSP   &kp DEL
+   &none  &trans    &trans    &trans     &trans      &trans         &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none
+   &none  &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHIFT  &trans         &bt BT_CLR   &trans       &trans       &trans       &trans       &none
+   &none  &trans    &trans    &trans     &trans      &trans         &trans       &trans       &trans       &trans       &trans       &none
+                               &trans     &trans      &trans        &kp RET      &kp BKSP     &kp DEL
                         >;
                 };
                 
