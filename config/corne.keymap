@@ -44,7 +44,7 @@
 // | TRANS|  Q  |    W    |    F    |     P    |    B    |   |    J    |     L     |    U    |    Y    |  '  | TRANS|
 // | TRANS|  A  |  R/GUI  |  S/ALT  |  T/CTRL  |  G/SFT  |   |  M/SFT  |  N/CTRL   |  E/ALT  |  I/GUI  |  O  | TRANS|
 // | TRANS|  Z  |    X    |    C    |     D    |    V    |   |    K    |     H     |    ,    |    .    |  /  | TRANS|
-//                        |  ESC/3  |   TAB/1  |  SPC/2  |   |  ENT/5  |   BKSP/4  |  DEL/6  |
+//                        |  ESC/3  |   SPC/1  |  TAB/2  |   |  ENT/5  |   BKSP/4  |  DEL/6  |
                         bindings = <
    &none &kp Q       &kp W      &kp F       &kp P        &kp B   &kp J  &kp L        &kp U       &kp Y      &kp APOS   &none
    &none &hm LGUI A  &hm LALT R &hm LCTRL S &hm LSHIFT T &kp G   &kp M  &hm LSHIFT N &hm LCTRL E &hm LALT I &hm LGUI O &none
